@@ -10,7 +10,7 @@ print("Initializing p.r.i.y.a")
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
-
+#
 def speak(text):
     engine.say(text)
     engine.runAndWait()
@@ -21,13 +21,13 @@ def wishMe():
     hour = int(datetime.datetime.now().hour)
     
     if 0<=hour<12:
-        speak("good morning"+ Master)
+        speak("happy morning"+ Master)
 
     elif 12<hour<18:
-        speak("good afternoon"+ Master)   
+        speak("happy afternoon"+ Master)   
 
     else:
-        speak("good evening"+ Master)
+        speak("happy evening"+ Master)
 
     speak(" i am priya sir please tell me how can i assist you ")    
 
