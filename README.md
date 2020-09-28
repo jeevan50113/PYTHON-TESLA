@@ -2,4 +2,11 @@
 This is a desktop voice assistant project.
 which works on python modules.
 
-install the packages and run
+install the  following packages:
+mport pyttsx3
+import speechRecognition 
+import datetime
+import wikipedia
+import webbrowser
+import os
+import smtplib
