@@ -5,8 +5,8 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
-Master = "raahul sir"
-print("Initializing p.r.i.y.a")
+Master = "jeevan sir"
+print("preparing T.E.S.L")
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
@@ -29,7 +29,7 @@ def wishMe():
     else:
         speak("happy evening"+ Master)
 
-    speak(" i am priya sir please tell me how can i assist you ")    
+    speak(" this tesla how can i help you ")    
 
 def takeCommand():
     r = sr.Recognizer()
@@ -37,7 +37,7 @@ def takeCommand():
         print("Listining....")
         r.pause_threshold=1
         audio = r.listen(source)
-        
+
     try :
         print("Recognizing...")
         query = r.recognize_google(audio, language= 'en-in' )
@@ -50,36 +50,38 @@ def takeCommand():
 #main starts here
 
 if __name__ == "__main__":
-    speak("Initializing priya")
+    speak("preparing tesla")
     con = 1
     wishMe()
     while con!=2:
+
         query = takeCommand().lower()
+
         if 'wikipedia' in  query:
-            speak("searching wikipedia......rahul sir")
+            speak("searching wikipedia......sir")
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences  =2)
             speak(results)
         elif 'open youtube' in query:
             url = "youtube.com"
-            speak("oppening youtube rahul sir")
+            speak("oppening youtube ")
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             webbrowser.get(chrome_path).open(url)
 
         elif 'open google' in query:
-            speak("opening google rahul sir")
+            speak("opening google ")
             url = "google.com"
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             webbrowser.get(chrome_path).open(url)
-
-        elif 'open stackoverflow' in query:
-            speak("opening stackoverflow rahul sir")
+            
+        elif 'open stack overflow' in query:
+            speak("opening stackoverflow ")
             url = "stackoverflow.com"
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             webbrowser.get(chrome_path).open(url)
 
         elif 'open reddit' in query:
-            speak("oppenning reddit rahul sir")
+            speak("oppenning reddit")
             url = "reddit.com"
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             webbrowser.get(chrome_path).open(url)
@@ -90,54 +92,57 @@ if __name__ == "__main__":
            os.startfile(path)
 
         elif 'play music' in  query:
-            speak("playing rahul sir")
-            song_dict = "C:\\Users\jeevan kumar\\OneDrive\\Desktop\\jarvis songs"
+            speak("playing  sir")
+            song_dict = "C:\\Users\\jeevan kumar\\OneDrive\\Desktop\\jarvis\\jarvis songs"
             songs = os.listdir(song_dict)
             print(songs)  
-            speak("which index song you want to play")
-            song=int(takeCommand())
+            
+            #speak("which index song you want to play")
+            #song=int(takeCommand())
             #if song in songs:
-            os.startfile(os.path.join(song_dict, songs[song]))
+            os.startfile(os.path.join(song_dict, songs[0]))
 
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
-            speak(f"rahul sir, the time is {strTime}")
-
+            speak(f"sir, the time is {strTime}")
             
+           #you should give you folder path to open you project 
         elif 'open my project' in query:
             path = "C:\\Users\\jeevan kumar\\AppData\\Local\\Programs\\Microsoft VS Code\\code.exe"
             os.startfile(path)
 
 
-        elif 'thanks priya' in query:
+        elif 'thanks telsa' in query:
             con =int(con) + 1
-            speak("your welcome baava")
+            speak("your welcome sir")
 
-        elif 'love you priya' in query:
-            con =int(con)  + 1
-            speak("love you to rahul baava") 
-
-        elif 'open face book' in query:
-            speak("opening face book rahul sir")
-            url = "facebook.com"
-            chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+      
+       #in this bit facebook will not open in chrome it will open in default webbrowser i.e internet explorer 
+        elif 'open facebook' in query:
+            speak("opening face book ")
+           # url= "facebook.com"
+            #chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.ex'
+            webbrowser.open("facebookcom")
            
              
-
+       
+       #in this bit facebook will not open in chrome it will open in default webbrowser i.e internet explorer 
         elif 'open instagram' in query:
             speak("opening instagram")
-            url = "instagram.com"
-            chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            # url e %s= "facebook.com"
+            #chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.ex'
+            webbrowser.open("instagram.com")
 
             
-        elif 'open watsapp' in query:
-            speak("opening whatsapp   rahul sir")
+        elif 'open WatsApp' in query:
+            speak("opening whatsapp ")
             path ='C:\\Users\\jeevan kumar\\AppData\\Local\\WhatsApp'
             os.startfile(path)
            
-        
+        #you should give you folder path to open phontos
+        #the path specified in the code is my folder path so just remove it and add yours
         elif 'my photos' in query:
-            speak("opening my photos rahul sir")
+            speak("opening my photos ")
             path ='C:\\Users\\jeevan kumar\\OneDrive\\Desktop\\my photos'
             os.startfile(path)   
