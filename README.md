@@ -10,3 +10,6 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
+
+
+#I have got lots of errors while writing this code so i prefer you to go with stack overflow to solve erros.
