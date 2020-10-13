@@ -47,7 +47,7 @@ def takeCommand():
         print("say that again please")
         query= None
     return query   
-#main starts here
+#main s
 
 if __name__ == "__main__":
     speak("preparing tesla")
