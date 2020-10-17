@@ -5,6 +5,8 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
+from requests import get
+
 Master = "jeevan sir"
 print("preparing T.E.S.L")
 engine = pyttsx3.init('sapi5')
@@ -145,4 +147,10 @@ if __name__ == "__main__":
         elif 'my photos' in query:
             speak("opening my photos ")
             path ='C:\\Users\\jeevan kumar\\OneDrive\\Desktop\\my photos'
-            os.startfile(path)   
+            os.startfile(path)     
+            
+            
+       elif 'my ip address' in query: 
+             add = get('https://api.ipify.org').text  
+             speak(add)
+             print(add) 
